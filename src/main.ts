@@ -24,25 +24,6 @@ const fastifyOpts = {
       },
       level: 'info',
     },
-    serializers: {
-      res(_reply) {
-        // The default
-        return {
-          statusCode: _reply.statusCode,
-          statusMessage: _reply.raw.statusMessage,
-        };
-      },
-      req(_request) {
-        return {
-          host: _request.headers.host,
-          url: _request.url,
-          path: _request.routerPath,
-          method: _request.method,
-          params: _request.params,
-          query: _request.query,
-        };
-      },
-    },
   },
 };
 

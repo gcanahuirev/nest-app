@@ -7,14 +7,14 @@ import {
 
 export const initSwagger = (app: INestApplication) => {
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('Tenant API')
+    .setTitle('Boilerplate Nest 9')
     .addBearerAuth()
-    .setDescription('Service for managing tenants')
+    .setDescription('Configuración base para proyectos nest')
     .setVersion('0.0.1')
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('/api/docs', app, document, {
-    uiConfig: {
+    swaggerOptions: {
       deepLinking: true,
       displayOperationId: true,
       defaultModelRendering: 'model',
@@ -29,6 +29,5 @@ export const initSwagger = (app: INestApplication) => {
       },
       tryItOutEnabled: false,
     },
-    staticCSP: true,
   } as SwaggerCustomOptions);
 };
